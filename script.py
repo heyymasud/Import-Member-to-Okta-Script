@@ -97,12 +97,12 @@ def main():
                     })
 
                     if status == 200 and response.get("success", False):
-                        logging.info(f"✅ Success: Row {row_num} → User ID: {user_id}")
+                        logging.info(f"Success: Row {row_num} → User ID: {user_id}")
                     else:
-                        logging.error(f"❌ Failed: Row {row_num} → Status: {status}, Error: {error_msg}, Detail: {response}")
+                        logging.error(f"Failed: Row {row_num} → Status: {status}, Error: {error_msg}, Detail: {response}")
 
                 except ValueError as ve:
-                    logging.warning(f"⚠️ Skip Row {row_num}: {ve}")
+                    logging.warning(f"Skip Row {row_num}: {ve}")
                     writer.writerow({
                         "row_number": row_num,
                         "email": "",
@@ -112,7 +112,7 @@ def main():
                         "error": str(ve)
                     })
                 except Exception as e:
-                    logging.error(f"💥 Unexpected error at Row {row_num}: {e}")
+                    logging.error(f"Unexpected error at Row {row_num}: {e}")
                     writer.writerow({
                         "row_number": row_num,
                         "email": "",
@@ -122,10 +122,10 @@ def main():
                         "error": str(e)
                     })
 
-        logging.info(f"📄 Report saved to: {REPORT_FILE}")
+        logging.info(f"Report saved to: {REPORT_FILE}")
 
     except Exception as e:
-        logging.error(f"🚨 Fatal error: {e}")
+        logging.error(f"Fatal error: {e}")
         exit(1)
         
 if __name__ == "__main__":
